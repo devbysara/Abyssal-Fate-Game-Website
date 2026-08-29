@@ -84,7 +84,7 @@ body {
     width: 12%;
     background: var(--color-light-lavender);
     box-shadow: 4px 4px 0 var(--color-dark-lavender);
-    padding: 1.3rem 1rem;
+    padding: 1rem;
     color: var(--color-white);
     font-weight: 700;
     font-size: 16px;
@@ -344,7 +344,6 @@ body {
         font-size: 15px;
         margin-right: 1rem;
         width: 150px;
-        padding: 1rem;
     }
     .game-des {
         background: url(images/main-bg-mobile.webp) center no-repeat;
@@ -424,7 +423,7 @@ body {
     }
     .main-button a {
         width: 20%;
-        padding: 1.2rem 0;
+        padding: 1.1rem;
         align-self: center;
     }
     .main-button a:first-of-type {
