@@ -45,7 +45,7 @@ body {
         var(--color-purple) 60.5%,
         var(--color-purple) 100%
     ),
-    url(images/abyssal-fate-bg.webp) left center / 110% auto no-repeat;
+    url(images/abyssal-fate-bg.webp) left center / auto 100% no-repeat;
 }
 
 .main-image {
@@ -56,15 +56,16 @@ body {
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 25px;
     color: var(--color-white);
     z-index: 2;
-    padding-right: 5%;
+    top: 25%;
+    right: 6%;
 }
 
 .main-text p {
-    font-weight: 500;
-    font-size: 20px;
+    font-weight: 600;
+    font-size: 22px;
     color: var(--color-light-lavender);
 }
 
@@ -76,17 +77,17 @@ body {
 .main-button {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
 }
 
 .main-button a {
     width: 12%;
     background: var(--color-light-lavender);
     box-shadow: 4px 4px 0 var(--color-dark-lavender);
-    padding: 1rem;
+    padding: 1.3rem 1rem;
     color: var(--color-white);
     font-weight: 700;
-    font-size: 15px;
+    font-size: 16px;
     text-align: center;
     margin-right: 7rem;
     text-decoration: none;
@@ -103,7 +104,7 @@ body {
 }
 
 .game-des {
-    padding: 60px 20px;
+    padding: 0 6vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -112,6 +113,7 @@ body {
     background-size: 100% 100%;
     background-attachment: fixed;
     overflow: hidden;
+    margin: -0.1% 0;
     z-index: 1;
 }
 
@@ -143,6 +145,10 @@ body {
     color: var(--color-light-lavender);
 }
 
+.des-text p {
+    font-size: clamp(1rem, 2vw, 1.4rem);
+}
+
 .game-gallary {
     z-index: 3;
     color: var(--color-light-lavender);
@@ -160,7 +166,7 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    gap: 20px;
+    gap: 30px;
     width: 100%;
     max-width: 100%;
 }
@@ -170,14 +176,15 @@ body {
 }
 
 .scene {
-    break-inside: avoid;
     background: var(--color-dark-lavender);
     border: 3px solid var(--color-purple);
     padding: 1rem;
-    font-weight: 500;
+    font-weight: 600;
     width: 300px;
     height: 173px;
     cursor: pointer;
+    display: flex;
+    align-items: end;
     transition: border 0.2s ease;
 }
 
@@ -225,24 +232,26 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    margin-top: 4rem;
+    margin: 6rem 0;
     z-index: 4;
 }
 
 .socials-section h4 {
     color: var(--color-light-lavender);
-    font-size: 30px;
+    font-size: 40px;
+    margin-bottom: 1rem;
 }
 
 .socials-section a {
     text-decoration: none;
     font-family: 'Press Start 2P', Arial, Helvetica, sans-serif;
     background: var(--color-light-lavender);
-    font-size: 12px;
+    font-size: 13px;
+    font-weight: 600;
     box-shadow: 4px 4px 0 var(--color-dark-lavender);
-    padding: 15px;
+    padding: 25px 60px;
+    width: 100%;
     text-align: center;
-    width: 95%;
     color: var(--color-purple);
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
@@ -252,7 +261,40 @@ body {
     box-shadow: 2px 2px 0 var(--color-dark-lavender);
 }
 
-@media (min-width: 375px) and (max-width: 767px) {
+.lightbox {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox span {
+    position: absolute;
+    top: 2%;
+    right: 8%;
+    justify-content: flex-start;
+    font-size: 3rem;
+    color: var(--color-light-lavender);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border: 3px solid var(--color-purple);
+    cursor: zoom-out;
+}
+
+@media (max-width: 767px) {
     body {
         min-width: 0;
     }
@@ -260,6 +302,7 @@ body {
         display: flex;
         flex-direction: column;
         position: static;
+        min-height: auto;
     }
     .main-section::before {
         background: none;
@@ -279,30 +322,34 @@ body {
         background: var(--color-purple);
         font-size: 10px;
         justify-content: center;
-        padding: 0 2.5rem 2rem 0;
-        min-height: 55vh;
+        padding: 3rem;
+        min-height: 50vh;
         position: static;
         margin: 0;
-        gap: 30px;
+        gap: 28px;
+    }
+    .main-text p {
+        font-size: 18px;
     }
     .main-text h1 {
-        width: 65%;
+        width: 80%;
         font-size: 35px;
+        text-align: right;
     }
     .main-button {
         width: 100%;
     }
     .main-button a {
+        align-self: center;
         font-size: 15px;
-        margin-right: 6rem;
-        width: 45%;
-    }
-    .main-button a:last-of-type {
-        margin-right: 9rem;
+        margin-right: 1rem;
+        width: 150px;
+        padding: 1rem;
     }
     .game-des {
-        background: url(images/main-mobile-bg.webp) center no-repeat;
+        background: url(images/main-bg-mobile.webp) center no-repeat;
         background-attachment: fixed;
+        padding: 4vw 6vw;
     }
     .des-text {
         font-size: 18px;
@@ -322,11 +369,14 @@ body {
     .socials-section a {
         width: 90%;
         font-size: 10px;
-        padding: 1rem;
+        padding: 1.2rem;
     }
     a:active {
     transform: translate(2px, 2px);
     box-shadow: 2px 2px 0 var(--color-dark-lavender);
+    }
+    .lightbox span {
+        top: 30%;
     }
 }
 
@@ -362,8 +412,8 @@ body {
         align-items: center;
         min-height: 30vh;
         position: static;
-        padding: 0;
-        gap: 20px;
+        padding: 6vw 2vw;
+        gap: 25px;
     }
     .main-button {
         display: flex;
@@ -384,8 +434,9 @@ body {
         margin-right: 0;
     }
     .game-des {
-        background: url(images/main-bg.webp) center 100% 100% no-repeat;
+        background: url(images/main-bg-tablet.webp) center 100% auto no-repeat;
         background-attachment: fixed;
+        padding: 8vw 4vw;
     }
     .des-text {
         width: 85%;
@@ -393,10 +444,13 @@ body {
     .scenes {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
+        gap: 35px;
     }
     .grid-seven {
         grid-column: 1 / -1;
         margin-inline: auto;
+    }
+    .lightbox span {
+        top: 25%;
     }
 }
