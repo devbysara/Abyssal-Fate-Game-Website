@@ -21,7 +21,6 @@
 body {
     font-family: 'Inter', Arial, Helvetica, sans-serif;
     width: 100%;
-    min-width: 1037px;
 }
 
 .main-section {
@@ -84,7 +83,7 @@ body {
     width: 12%;
     background: var(--color-light-lavender);
     box-shadow: 4px 4px 0 var(--color-dark-lavender);
-    padding: 1rem;
+    padding: 1rem 0;
     color: var(--color-white);
     font-weight: 700;
     font-size: 16px;
@@ -98,7 +97,8 @@ body {
     margin-right: 10rem;
 }
 
-.main-button a:hover {
+.main-button a:hover,
+.main-button a:active {
     transform: translate(2px, 2px);
     box-shadow: 2px 2px 0 var(--color-dark-lavender);
 }
@@ -149,30 +149,27 @@ body {
     font-size: clamp(1rem, 2vw, 1.4rem);
 }
 
-.game-gallary {
+.game-gallery {
     z-index: 3;
     color: var(--color-light-lavender);
     display: flex;
     flex-direction: column;
     gap: 20px;
-    overflow: hidden;
+    width: 100%;
 }
 
-.game-gallary h3 {
+.game-gallery h3 {
     font-size: 25px;
+    padding: 1vw 10vw 0 0;
 }
 
 .scenes {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
     gap: 30px;
     width: 100%;
-    max-width: 100%;
-}
-
-.grid-seven {
-    grid-column-start: 2;
+    max-width: 1000px;
+    margin-inline: auto;
 }
 
 .scene {
@@ -180,7 +177,7 @@ body {
     border: 3px solid var(--color-purple);
     padding: 1rem;
     font-weight: 600;
-    width: 300px;
+    width: 100%;
     height: 173px;
     cursor: pointer;
     display: flex;
@@ -225,6 +222,7 @@ body {
 .seven {
     background: url(images/gallary-photo-seven.webp) center no-repeat;
     background-size: 100%;
+    grid-column-start: 2;
 }
 
 .socials-section {
@@ -257,7 +255,8 @@ body {
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.socials-section a:hover {
+.socials-section a:hover,
+.socials-section a:active {
     transform: translate(2px, 2px);
     box-shadow: 2px 2px 0 var(--color-dark-lavender);
 }
@@ -295,10 +294,7 @@ body {
     cursor: zoom-out;
 }
 
-@media (max-width: 767px) {
-    body {
-        min-width: 0;
-    }
+@media (max-width: 639px) {
     .main-section {
         display: flex;
         flex-direction: column;
@@ -361,19 +357,14 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 20px;
-    }
-    .scene {
-        width: 300px;
-        height: 176px;
-    }
+}
     .socials-section {
         margin: 4rem 0;
     }
     .socials-section a {
         width: 90%;
         font-size: 10px;
-        padding: 1.2rem;
+        padding: 6vw;
     }
     a:active {
     transform: translate(2px, 2px);
@@ -384,10 +375,7 @@ body {
     }
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
-    body {
-        min-width: 0;
-    }
+@media (min-width: 640px) and (max-width: 1279px) {
     .main-section {
         display: flex;
         flex-direction: column;
@@ -404,7 +392,7 @@ body {
     }
     .main-image img {
         width: 100%;
-        min-height: 55vh;
+        min-height: 50vh;
         object-fit: cover;
         object-position: center;
         background-size: cover;
@@ -414,10 +402,13 @@ body {
         font-size: 10px;
         justify-content: center;
         align-items: center;
-        min-height: 30vh;
+        height: clamp(35vh, 40vw, 40vh);
         position: static;
         padding: 6vw 2vw;
-        gap: 25px;
+        gap: 20px;
+    }
+    .main-text h1 {
+        width: 27%;
     }
     .main-button {
         display: flex;
@@ -427,8 +418,9 @@ body {
         width: 100%;
     }
     .main-button a {
-        width: 20%;
-        padding: 1.1rem 0;
+        width: 100%;
+        max-width: 150px;
+        padding: 1rem;
         align-self: center;
     }
     .main-button a:first-of-type {
@@ -440,25 +432,34 @@ body {
     .game-des {
         background: url(images/main-bg-tablet.webp) center 100% auto no-repeat;
         background-attachment: fixed;
-        padding: 2vw 4vw;
+        padding: 4vw;
     }
     .des-text {
-        width: 85%;
+        width: 80%;
         margin: 3rem 0;
+        padding: 2rem;
+    }
+    .game-gallery h3 {
+        text-align: center;
+        padding: 0;
+        font-size: 2rem;
+        padding: 2vw 0;
     }
     .scenes {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 35px;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
-    .grid-seven {
-        grid-column: 1 / -1;
-        margin-inline: auto;
+    .scene {
+        height: 170px;
     }
     .socials-section {
         margin: 3rem 0;
     }
+    .socials-section a {
+        padding: 2rem 0;
+        width: 300px;
+        font-size: clamp(1.2rem, 2vw, 1.3rem);
+    }
     .lightbox span {
-        top: 25%;
+        top: 20%;
     }
 }
