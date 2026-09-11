@@ -178,7 +178,7 @@ body {
     padding: 1rem;
     font-weight: 600;
     width: 100%;
-    height: 173px;
+    aspect-ratio: 16 / 9;
     cursor: pointer;
     display: flex;
     align-items: end;
@@ -373,7 +373,6 @@ body {
     }
     .scene {
         max-width: 350px;
-        max-height: 100%;
     }
     .socials-section {
         margin: 4rem 0;
@@ -467,10 +466,13 @@ body {
         padding: 2vw 0;
     }
     .scenes {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
     .scene {
-        max-height: 100%;
+        flex: 1 1 250px;
+        max-width: 300px;
     }
     .socials-section {
         margin: 3rem 0;
